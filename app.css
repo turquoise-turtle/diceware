@@ -1,0 +1,12 @@
+body {
+/* 	font-family: sans-serif; */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.underline {
+	/* text-decoration: underline; */
+	border: 1px solid black;
+	padding: 0.25em;
+}
+.phrase {
+	display	: inline-block;
+}

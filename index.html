@@ -1,0 +1,35 @@
+<script src="vue.js"></script>
+<link rel="stylesheet" type="text/css" href="app.css">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+<div id="app">
+	<h1>Diceware</h1>
+	<div>
+		<select v-model="selected">
+			<option v-for="option in options" :value="option.shortcode">{{option.name}}</option>
+		</select>
+		<input type="number" v-model="phraselength">
+	</div>
+	<p class="underline phrase">{{phrase}}</p><br>
+	<button @click="newrandom">Generate Password</button>
+	<br>
+	<h3>Or roll {{ dicewarelist[selected].number }} times your own {{ dicewarelist[selected].minmax[1] }}-sided die:</h2>
+<!-- 	<input v-for="(n, i) in dicewarelist[selected].number" v-model="curcode[n]"> -->
+	<input v-model="manual" id="manual"><label for="manual"> (separate the numbers with a comma e.g. 1,1,1)</label>
+	<div v-if="manual">
+		<p>The diceware word for your input is <span class="underline">{{ evaluated }}</span></p>
+	</div>
+	<div v-else> 
+		<br>
+		<br>
+	</div>
+	<p><em>These wordlists came from the Electronic Frontier Foundation and Arnold G. Reinhold, both of whom are not affiliated with this project.</em></p>
+	<p><em>Any trademarks within the word lists are the property of their respective trademark holders, who are not affiliated with turquoise-turtle or the Electronic Frontier Foundation and do not sponsor or endorse these passwords.</em></p>
+</div>
+<script src="starwars.js"></script>
+<script src="eff_large_wordlist.js"></script>
+<script src="eff_short_wordlist_1.js"></script>
+<script src="eff_short_wordlist_2_0.js"></script>
+<script src="diceware.wordlist.js"></script>
+
+<script src="app.js"></script>
