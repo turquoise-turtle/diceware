@@ -10,3 +10,7 @@ body {
 .phrase {
 	display	: inline-block;
 }
+
+.gitlink {
+	color: black;
+}
