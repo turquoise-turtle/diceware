@@ -15,7 +15,12 @@ self.addEventListener('fetch', function(evt) {
   console.log('The service worker is serving the asset.');
   // You can use `respondWith()` to answer immediately, without waiting for the
   // network response to reach the service worker...
-  evt.respondWith(fromCache(evt.request));
+  if (doNotCache(evt.request)) {
+  	//console.log(evt.request);
+  	evt.respondWith(fetch(evt.request))
+  } else {
+  	evt.respondWith(fromCache(evt.request));
+  }
   // ...and `waitUntil()` to prevent the worker from being killed until the
   // cache is updated.
   evt.waitUntil(update(evt.request));
@@ -57,15 +62,32 @@ function fromCache(request) {
 // Update consists in opening the cache, performing a network request and
 // storing the new response data.
 function update(request) {
-  return caches.open(CACHE).then(function (cache) {
-    return fetch(request).then(function (response) {
-      return cache.put(request, response);
-    }).catch(function(error){
-    	console.log(error);
-    	//do nothing
-    	return new Promise(function(resolve,reject){
-    		resolve();
+  if (navigator.onLine) {
+  	return caches.open(CACHE).then(function (cache) {
+    	return fetch(request).then(function (response) {
+      		return cache.put(request, response);
+    	}).catch(function(error){
+    		console.log(error);
+    		//do nothing
+    		return new Promise(function(resolve,reject){
+    			resolve();
+    		});
     	});
-    });
-  });
+	});
+  }
+}
+
+function doNotCache(request) {
+	var result = false;
+	var url = request.url;
+	var doNotCacheList = [
+		'https://makerwidget.com'
+	]
+	for (var doNotCacheItem of doNotCacheList) {
+		if (url.indexOf(doNotCacheItem) > -1) {
+			result = true;
+		}
+	}
+	console.log(request.url, result);
+	return result;
 }
