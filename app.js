@@ -42,6 +42,18 @@ var app = new Vue({
 				number: 5,
 				list: window.diceware_wordlist,
 				join: ''
+			},
+			startrek: {
+				minmax: [1,20],
+				number: 3,
+				list: window.startrek,
+				join: '-'
+			},
+			gameofthrones: {
+				minmax: [1,20],
+				number: 3,
+				list: window.gameofthrones,
+				join: '-'
 			}
 		},
 		phraselength: 5,
