@@ -78,6 +78,14 @@ var app = new Vue({
 			5: {
 				name: 'Original Diceware Wordlist',
 				shortcode: 'originaldiceware'
+			},
+			6: {
+				name: 'Star Trek',
+				shortcode: 'startrek'
+			},
+			7: {
+				name: 'Game Of Thrones',
+				shortcode: 'gameofthrones'
 			}
 		},
 		curcode: [],
