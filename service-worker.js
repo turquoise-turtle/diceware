@@ -39,6 +39,7 @@ function precache() {
       '/diceware/eff_large_wordlist.js',
       '/diceware/eff_short_wordlist_1.js',
       '/diceware/eff_short_wordlist_2_0.js',
+      '/diceware/shortened_mnemonic_encoding_wordlist.js',
       '/diceware/diceware.wordlist.js',
       '/diceware/favicon-16x16.png',
       '/diceware/favicon-32x32.png',

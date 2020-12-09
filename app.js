@@ -54,6 +54,12 @@ var app = new Vue({
 				number: 3,
 				list: window.gameofthrones,
 				join: '-'
+			},
+			mnemonicencoding: {
+				minmax: [1,6],
+				number: 4,
+				list: window.mnemonicencoding,
+				join: ''
 			}
 		},
 		phraselength: 5,
@@ -86,6 +92,10 @@ var app = new Vue({
 			7: {
 				name: 'Game Of Thrones',
 				shortcode: 'gameofthrones'
+			},
+			8: {
+				name: 'Mnemonic Encoding',
+				shortcode: 'mnemonicencoding'
 			}
 		},
 		curcode: [],
